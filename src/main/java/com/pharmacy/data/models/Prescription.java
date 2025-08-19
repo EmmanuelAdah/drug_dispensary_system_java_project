@@ -8,6 +8,7 @@ public class Prescription {
     private String status;
 
     public long getPatientID() {
+
         return patientID;
     }
 
@@ -16,34 +17,42 @@ public class Prescription {
     }
 
     public Drug getDrug() {
+
         return drug;
     }
 
     public void setDrug(Drug drug) {
+
         this.drug = drug;
     }
 
     public int getDosage() {
+
         return dosage;
     }
 
     public void setDosage(int dosage) {
+
         this.dosage = dosage;
     }
 
     public int getQuantity() {
+
         return quantity;
     }
 
     public void setQuantity(int quantity) {
+
         this.quantity = quantity;
     }
 
     public String getStatus() {
+
         return status;
     }
 
     public void setStatus(String status) {
+
         this.status = status;
     }
 }
