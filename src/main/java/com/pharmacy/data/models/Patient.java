@@ -5,7 +5,7 @@ public class Patient {
     private String firstName;
     private String lastName;
     private int age;
-    private String address;
+    private Gender gender;
     private String email;
     private String phone;
 

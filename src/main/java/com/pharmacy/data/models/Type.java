@@ -1,5 +1,5 @@
 package com.pharmacy.data.models;
 
 public enum Type {
-    ANTIBIOTIC, PROBIOTIC
+    ANTIBIOTIC, PROBIOTIC, IV, PAINKILLER
 }
