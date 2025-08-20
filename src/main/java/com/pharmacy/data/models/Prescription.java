@@ -2,13 +2,14 @@ package com.pharmacy.data.models;
 
 public class Prescription {
     private long patientID;
+    private String diagnosis;
     private Drug drug;
-    private int dosage;
+    private String dosage;
     private int quantity;
     private String status;
 
     public long getPatientID() {
-        return patientID;
+        return this.patientID;
     }
 
     public void setPatientID(long patientID) {
@@ -16,23 +17,23 @@ public class Prescription {
     }
 
     public Drug getDrug() {
-        return drug;
+        return this.drug;
     }
 
     public void setDrug(Drug drug) {
         this.drug = drug;
     }
 
-    public int getDosage() {
-        return dosage;
+    public String getDosage() {
+        return this.dosage;
     }
 
-    public void setDosage(int dosage) {
+    public void setDosage(String dosage) {
         this.dosage = dosage;
     }
 
     public int getQuantity() {
-        return quantity;
+        return this.quantity;
     }
 
     public void setQuantity(int quantity) {
@@ -40,10 +41,18 @@ public class Prescription {
     }
 
     public String getStatus() {
-        return status;
+        return this.status;
     }
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public String getDiagnosis() {
+        return this.diagnosis;
+    }
+
+    public void setDiagnosis(String diagnosis) {
+        this.diagnosis = diagnosis;
     }
 }
