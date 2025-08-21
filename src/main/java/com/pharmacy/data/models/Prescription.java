@@ -3,9 +3,11 @@ package com.pharmacy.data.models;
 public class Prescription {
     private long patientID;
     private Drug drug;
+    private Doctor doctor;
     private int dosage;
     private int quantity;
     private String status;
+    private String code;
 
     public long getPatientID() {
         return patientID;
@@ -46,12 +48,22 @@ public class Prescription {
     public void setStatus(String status) {
         this.status = status;
     }
+    public Doctor getDoctor() {
+        return doctor;
+    }
+
+    public void setDoctor(Doctor doctor) {
+        this.doctor = doctor;
+    }
 
     public void add(Prescription prescription) {
         prescription.setPatientID(patientID);
     }
 
-    public void setCode(String s) {
+    public String getCode() {
+        return code;
+    }
 
+    public void setCode(String s) {
     }
 }
