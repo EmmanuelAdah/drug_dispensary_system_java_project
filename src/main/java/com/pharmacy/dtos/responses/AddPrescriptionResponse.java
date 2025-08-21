@@ -6,13 +6,21 @@ import java.util.List;
 
 public class AddPrescriptionResponse {
     private long patientID;
+    private int prescriptionID;
     private List<Drug> drugs;
     private String dosage;
     private int quantity;
 
-
     public long getPatientID() {
         return this.patientID;
+    }
+
+    public int getPrescriptionID() {
+        return prescriptionID;
+    }
+
+    public void setPrescriptionID(int prescriptionID) {
+        this.prescriptionID = prescriptionID;
     }
 
     public void setPatientID(long patientID) {
@@ -20,7 +28,7 @@ public class AddPrescriptionResponse {
     }
 
     public List<Drug> getDrugs() {
-        return this.drug;
+        return this.drugs;
     }
 
     public void setDrug(List<Drug> drug) {
