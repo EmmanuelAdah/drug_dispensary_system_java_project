@@ -9,7 +9,7 @@ public class Prescription {
     private String dosage;
     private int quantity;
     private Status status;
-    static int prescriptionID;
+    private String prescriptionCode;
 
 
     public long getPatientID() {
@@ -52,12 +52,12 @@ public class Prescription {
         this.status = status;
     }
 
-    public int getPrescriptionID() {
-        return prescriptionID;
+    public String getPrescriptionCode() {
+        return this.prescriptionCode;
     }
 
-    public void setPrescriptionID(int id) {
-        prescriptionID = id;
+    public void setPrescriptionCode(String code) {
+        this.prescriptionCode = code;
     }
 
     public String getDiagnosis() {
