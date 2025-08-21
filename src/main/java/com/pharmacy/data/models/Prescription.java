@@ -46,4 +46,12 @@ public class Prescription {
     public void setStatus(String status) {
         this.status = status;
     }
+
+    public void add(Prescription prescription) {
+        prescription.setPatientID(patientID);
+    }
+
+    public void setCode(String s) {
+
+    }
 }
