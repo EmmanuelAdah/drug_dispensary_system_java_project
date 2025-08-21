@@ -1,58 +1,61 @@
 package com.pharmacy.data.models;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Prescription {
     private long patientID;
-    private Drug drug;
-    private int dosage;
+    private String diagnosis;
+    private List<Drug> drug;
+    private String dosage;
     private int quantity;
     private String status;
 
     public long getPatientID() {
-
-        return patientID;
+        return this.patientID;
     }
 
     public void setPatientID(long patientID) {
         this.patientID = patientID;
     }
 
-    public Drug getDrug() {
-
-        return drug;
+    public List<Drug> getDrugs() {
+        return this.drug;
     }
 
-    public void setDrug(Drug drug) {
-
-        this.drug = drug;
+    public void setDrug(List<Drug> drug) {
+        drugs = drug;
     }
 
-    public int getDosage() {
-
-        return dosage;
+    public String getDosage() {
+        return this.dosage;
     }
 
-    public void setDosage(int dosage) {
-
+    public void setDosage(String dosage) {
         this.dosage = dosage;
     }
 
     public int getQuantity() {
-
-        return quantity;
+        return this.quantity;
     }
 
     public void setQuantity(int quantity) {
-
         this.quantity = quantity;
     }
 
     public String getStatus() {
-
-        return status;
+        return this.status;
     }
 
     public void setStatus(String status) {
-
         this.status = status;
+    }
+
+    public String getDiagnosis() {
+        return this.diagnosis;
+    }
+
+    public void setDiagnosis(String diagnosis) {
+        this.diagnosis = diagnosis;
     }
 }
