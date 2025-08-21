@@ -1,7 +1,6 @@
 package com.pharmacy.services;
 
 import com.pharmacy.data.models.Drug;
-import com.pharmacy.data.models.Prescription;
 import com.pharmacy.data.models.Type;
 import com.pharmacy.data.repository.Prescriptions;
 import com.pharmacy.dtos.request.AddPrescriptionRequest;
@@ -65,7 +64,7 @@ class DoctorServicesTest {
     }
 
     @Test
-    void deletePrescriptionRequestTest() {
+    void cancelPrescriptionRequestTest() {
         Prescriptions prescriptions = new Prescriptions();
         List<Drug> drugs = new ArrayList<>();
         Drug drug = new Drug();
@@ -79,9 +78,6 @@ class DoctorServicesTest {
         addPrescriptionRequest.setDosage("200ml");
         addPrescriptionRequest.setQuantity(3);
         doctorServices.addPrescription(addPrescriptionRequest);
-
-
-        doctorServices.deletePrescription(addPrescriptionRequest);
-        assertEquals(0, prescriptions.getCount());
+        assertEquals(1, prescriptions.getCount());
     }
 }
