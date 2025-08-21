@@ -12,7 +12,7 @@ public class Drug {
     private int quantity;
 
     public long getId() {
-        return id;
+        return this.id;
     }
 
     public void setId(long id) {
@@ -20,7 +20,7 @@ public class Drug {
     }
 
     public String getName() {
-        return name;
+        return this.name;
     }
 
     public void setName(String name) {
@@ -28,7 +28,7 @@ public class Drug {
     }
 
     public Type getType() {
-        return type;
+        return this.type;
     }
 
     public void setType(Type type) {
@@ -36,7 +36,7 @@ public class Drug {
     }
 
     public String getCategory() {
-        return category;
+        return this.category;
     }
 
     public void setCategory(String category) {
@@ -44,7 +44,7 @@ public class Drug {
     }
 
     public LocalDate getManufacturedDate() {
-        return manufacturedDate;
+        return this.manufacturedDate;
     }
 
     public void setManufacturedDate(LocalDate manufacturedDate) {
@@ -52,7 +52,7 @@ public class Drug {
     }
 
     public LocalDate getExpiryDate() {
-        return expiryDate;
+        return this.expiryDate;
     }
 
     public void setExpiryDate(LocalDate expiryDate) {
@@ -60,7 +60,7 @@ public class Drug {
     }
 
     public int getQuantity() {
-        return quantity;
+        return this.quantity;
     }
 
     public void setQuantity(int quantity) {

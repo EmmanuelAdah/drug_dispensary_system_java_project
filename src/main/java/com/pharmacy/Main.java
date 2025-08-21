@@ -1,17 +1,52 @@
 package com.pharmacy;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+import java.util.Scanner;
+
+import static java.lang.System.in;
+
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
-        }
+        String choice = input(mainMenu());
+
+    }
+
+    public static String mainMenu() {
+        return """
+                welcome
+                press:-
+                1 -> Admin
+                2 -> Doctor
+                3 -> Pharmacist
+                4 -> Exit
+                """;
+    }
+
+    public static String doctorMenu(){
+        return """
+                press:-
+                1 -> Make prescription
+                2 -> View prescriptions
+                0 -> Back
+                """;
+    }
+
+   public static String pharmacistMenu(){
+        return """
+                press:-
+                1 -> Check prescription
+                2 -> Dispense drugs
+                0 -> Back
+                """;
+   }
+
+    public static void print(String message) {
+        System.out.println(message);
+    }
+
+    public static String input(String message) {
+        print(message);
+        Scanner scanner = new Scanner(in);
+        return scanner.nextLine();
     }
 }
