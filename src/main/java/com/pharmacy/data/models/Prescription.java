@@ -1,15 +1,16 @@
 package com.pharmacy.data.models;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Prescription {
     private long patientID;
     private String diagnosis;
-    private List<Drug> drug;
+    private List<Drug> drugs;
     private String dosage;
     private int quantity;
-    private String status;
+    private Status status;
+    static int prescriptionID;
+
 
     public long getPatientID() {
         return this.patientID;
@@ -20,10 +21,10 @@ public class Prescription {
     }
 
     public List<Drug> getDrugs() {
-        return this.drug;
+        return this.drugs;
     }
 
-    public void setDrug(List<Drug> drug) {
+    public void setDrugs(List<Drug> drug) {
         drugs = drug;
     }
 
@@ -43,12 +44,20 @@ public class Prescription {
         this.quantity = quantity;
     }
 
-    public String getStatus() {
+    public Status getStatus() {
         return this.status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(Status status) {
         this.status = status;
+    }
+
+    public int getPrescriptionID() {
+        return prescriptionID;
+    }
+
+    public void setPrescriptionID(int id) {
+        prescriptionID = id;
     }
 
     public String getDiagnosis() {
