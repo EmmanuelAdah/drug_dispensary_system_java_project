@@ -2,10 +2,12 @@ package com.pharmacy.dtos.request;
 
 import com.pharmacy.data.models.Drug;
 
+import java.util.List;
+
 public class AddPrescriptionRequest {
     private long patientID;
     private String diagnosis;
-    private Drug drug;
+    private List<Drug> drugs;
     private String dosage;
     private int quantity;
 
@@ -25,12 +27,12 @@ public class AddPrescriptionRequest {
         this.diagnosis = diagnosis;
     }
 
-    public Drug getDrug() {
+    public List<Drug> getDrug() {
         return this.drug;
     }
 
-    public void setDrug(Drug drug) {
-        this.drug = drug;
+    public void setDrug(List<Drug> drug) {
+        this.drugs = drug;
     }
 
     public String getDosage() {
