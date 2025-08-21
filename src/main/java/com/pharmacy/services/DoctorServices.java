@@ -6,20 +6,16 @@ import com.pharmacy.dtos.request.AddPrescriptionRequest;
 import com.pharmacy.dtos.request.CancelPrescriptionRequest;
 import com.pharmacy.dtos.responses.AddPrescriptionResponse;
 import com.pharmacy.dtos.responses.CancelPrescriptionResponse;
-
 import static com.pharmacy.utils.Mapper.map;
 import static com.pharmacy.utils.Mapper.mapper;
-import static com.pharmacy.utils.Validator.validate;
 
 public class DoctorServices {
     private final Prescriptions prescriptions = new Prescriptions();
 
     public AddPrescriptionResponse addPrescription(AddPrescriptionRequest addPrescriptionRequest) {
-        validate(addPrescriptionRequest);
         Prescription prescription = map(addPrescriptionRequest);
         prescriptions.savePrescription(prescription);
-        AddPrescriptionResponse addPrescriptionResponse = map(prescription);
-        return addPrescriptionResponse;
+        return map(prescription);
     }
 
     public CancelPrescriptionResponse cancelPrescription(CancelPrescriptionRequest cancelPrescriptionRequest){
