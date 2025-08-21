@@ -1,10 +1,8 @@
 package com.pharmacy.dtos.request;
 
-import com.pharmacy.data.models.Drug;
-
-public class CancelDrugRequest {
+public class CancelPrescriptionRequest {
     private long patientID;
-    private Drug drug;
+    private int prescriptionID;
 
     public long getPatientID() {
         return patientID;
@@ -14,11 +12,11 @@ public class CancelDrugRequest {
         this.patientID = patientID;
     }
 
-    public Drug getDrug() {
-        return drug;
+    public int getPrescriptionID() {
+        return prescriptionID;
     }
 
-    public void setDrug(Drug drug) {
-        this.drug = drug;
+    public void setPrescriptionID(int prescriptionID) {
+        this.prescriptionID = prescriptionID;
     }
 }
