@@ -1,11 +1,16 @@
 package com.pharmacy.utils;
 
+import com.pharmacy.data.models.Drug;
 import com.pharmacy.data.models.Prescription;
 import com.pharmacy.data.models.Status;
 import com.pharmacy.dtos.request.AddPrescriptionRequest;
 import com.pharmacy.dtos.request.CancelPrescriptionRequest;
 import com.pharmacy.dtos.responses.AddPrescriptionResponse;
 import com.pharmacy.dtos.responses.CancelPrescriptionResponse;
+import java.util.ArrayList;
+import java.util.List;
+
+import static com.pharmacy.utils.Validator.validate;
 
 public class Mapper {
 
@@ -14,10 +19,23 @@ public class Mapper {
         prescription.setPatientID(addPrescriptionRequest.getPatientID());
         prescription.setPrescriptionID(prescription.getPrescriptionID());
         prescription.setDiagnosis(addPrescriptionRequest.getDiagnosis());
-        prescription.setDrug(addPrescriptionRequest.getDrug());
+        prescription.setDrugs(mapDrugs(addPrescriptionRequest.getDrugs()));
         prescription.setDosage(addPrescriptionRequest.getDosage());
         prescription.setQuantity(addPrescriptionRequest.getQuantity());
         return prescription;
+    }
+
+    public static List<Drug> mapDrugs(List<Drug> prescription) {
+        List<Drug> drugs = new ArrayList<>();
+        for (Drug prescribed : prescription) {
+            Drug drug = new Drug();
+            drug.setId(prescribed.getId());
+            drug.setName(prescribed.getName());
+            validate(prescribed);
+            drug.setQuantity(prescribed.getQuantity());
+            drugs.add(drug);
+        }
+        return drugs;
     }
 
     public static AddPrescriptionResponse map(Prescription prescription) {
