@@ -44,7 +44,7 @@ class PrescriptionsTest {
         drugs.add(drug1);
 
         prescription.setPatientID(1L);
-        prescription.setDrug(drugs);
+        prescription.setDrugs(drugs);
         prescription.setDosage("200ml");
         prescription.setQuantity(3);
         prescriptions.savePrescription(prescription);
