@@ -15,7 +15,7 @@ public class Prescriptions {
         prescriptions.add(prescription);
     }
 
-    public void clearList() {
-        prescriptions.clear();
+    public List<Prescription> getPrescriptions() {
+        return prescriptions;
     }
 }
