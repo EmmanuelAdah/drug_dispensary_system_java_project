@@ -5,6 +5,10 @@ import com.pharmacy.data.models.Prescription;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class PrescriptionsTest {
@@ -17,7 +21,7 @@ class PrescriptionsTest {
 
     @AfterEach
     void tearDown(){
-        prescriptions.clearList();
+        prescriptions.getPrescriptions().clear();
     }
 
     @Test
@@ -29,12 +33,18 @@ class PrescriptionsTest {
     void prescriptionsListIsNotEmpty(){
         Prescription prescription = new Prescription();
         Drug drug = new Drug();
+        List<Drug> drugs = new ArrayList<>();
         drug.setId(12L);
         drug.setName("Panadol");
-        drug.setCategory("Antibiotic");
+        drugs.add(drug);
+
+        Drug drug1 = new Drug();
+        drug1.setId(12L);
+        drug1.setName("Panadol");
+        drugs.add(drug1);
 
         prescription.setPatientID(1L);
-        prescription.setDrug(drug);
+        prescription.setDrug(drugs);
         prescription.setDosage("200ml");
         prescription.setQuantity(3);
         prescriptions.savePrescription(prescription);
