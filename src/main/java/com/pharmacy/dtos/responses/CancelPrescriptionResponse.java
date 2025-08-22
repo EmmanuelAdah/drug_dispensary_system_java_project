@@ -5,7 +5,7 @@ import com.pharmacy.data.models.Status;
 
 public class CancelPrescriptionResponse {
     private long patientId;
-    private int prescriptionId;
+    private String prescriptionCode;
     private Drug drug;
     private Status Status;
 
@@ -17,12 +17,12 @@ public class CancelPrescriptionResponse {
         this.patientId = patientId;
     }
 
-    public int getPrescriptionId() {
-        return prescriptionId;
+    public String getPrescriptionCode() {
+        return this.prescriptionCode;
     }
 
-    public void setPrescriptionId(int prescriptionId) {
-        this.prescriptionId = prescriptionId;
+    public void setPrescriptionCode(String code) {
+        this.prescriptionCode = code;
     }
 
     public Drug getDrug() {

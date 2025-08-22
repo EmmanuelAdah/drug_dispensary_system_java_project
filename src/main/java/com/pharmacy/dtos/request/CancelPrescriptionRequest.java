@@ -2,7 +2,7 @@ package com.pharmacy.dtos.request;
 
 public class CancelPrescriptionRequest {
     private long patientID;
-    private int prescriptionID;
+    private String prescriptionCode;
 
     public long getPatientID() {
         return patientID;
@@ -12,11 +12,11 @@ public class CancelPrescriptionRequest {
         this.patientID = patientID;
     }
 
-    public int getPrescriptionID() {
-        return prescriptionID;
+    public String getPrescriptionCode() {
+        return prescriptionCode;
     }
 
-    public void setPrescriptionID(int prescriptionID) {
-        this.prescriptionID = prescriptionID;
+    public void setPrescriptionID(String code) {
+        this.prescriptionCode = code;
     }
 }

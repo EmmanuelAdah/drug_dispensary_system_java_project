@@ -18,6 +18,10 @@ public class DoctorServices {
         return map(prescription);
     }
 
+    public void viewPrescriptions(){
+        prescriptions.viewPrescriptions();
+    }
+
     public CancelPrescriptionResponse cancelPrescription(CancelPrescriptionRequest cancelPrescriptionRequest){
         Prescription prescription = mapper(cancelPrescriptionRequest);
         prescriptions.cancelPrescription(prescription);
