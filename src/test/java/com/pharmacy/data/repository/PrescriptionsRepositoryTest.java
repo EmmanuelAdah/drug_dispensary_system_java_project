@@ -11,22 +11,22 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class PrescriptionsTest {
-    Prescriptions prescriptions;
+class PrescriptionsRepositoryTest {
+    PrescriptionsRepository prescriptionsRepository;
 
     @BeforeEach
     void setUp(){
-        prescriptions = new Prescriptions();
+        prescriptionsRepository = new PrescriptionsRepository();
     }
 
     @AfterEach
     void tearDown(){
-        prescriptions.getPrescriptions().clear();
+        prescriptionsRepository.getPrescriptions().clear();
     }
 
     @Test
     void prescriptionsListIsEmptyTest(){
-        assertEquals(0, prescriptions.getCount());
+        assertEquals(0, prescriptionsRepository.getCount());
     }
 
     @Test
@@ -47,7 +47,7 @@ class PrescriptionsTest {
         prescription.setDrugs(drugs);
         prescription.setDosage("200ml");
         prescription.setQuantity(3);
-        prescriptions.savePrescription(prescription);
-        assertEquals(1, prescriptions.getCount());
+        prescriptionsRepository.savePrescription(prescription);
+        assertEquals(1, prescriptionsRepository.getCount());
     }
 }

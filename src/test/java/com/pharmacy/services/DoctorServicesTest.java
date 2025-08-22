@@ -2,7 +2,7 @@ package com.pharmacy.services;
 
 import com.pharmacy.data.models.Drug;
 import com.pharmacy.data.models.Type;
-import com.pharmacy.data.repository.Prescriptions;
+import com.pharmacy.data.repository.PrescriptionsRepository;
 import com.pharmacy.dtos.request.AddPrescriptionRequest;
 import com.pharmacy.exceptions.InvalidDrugQuantityException;
 import org.junit.jupiter.api.AfterEach;
@@ -24,14 +24,14 @@ class DoctorServicesTest {
 
     @AfterEach
     void tearDown() {
-        Prescriptions prescriptions = new Prescriptions();
-        prescriptions.getPrescriptions().clear();
+        PrescriptionsRepository prescriptionsRepository = new PrescriptionsRepository();
+        prescriptionsRepository.getPrescriptions().clear();
     }
 
     @Test
     void addPrescriptionRequest_WithValidQuantityTest() {
         List<Drug> drugs = new ArrayList<>();
-        Prescriptions prescriptions = new Prescriptions();
+        PrescriptionsRepository prescriptionsRepository = new PrescriptionsRepository();
         Drug drug = new Drug();
         drug.setName("Panadol");
         drug.setType(Type.PAINKILLER);
@@ -43,12 +43,12 @@ class DoctorServicesTest {
         addPrescriptionRequest.setDosage("200ml");
         addPrescriptionRequest.setQuantity(3);
         doctorServices.addPrescription(addPrescriptionRequest);
-        assertEquals(1, prescriptions.getCount());
+        assertEquals(1, prescriptionsRepository.getCount());
     }
 
     @Test
     void addPrescriptionRequest_WithInvalidQuantityTest() {
-        Prescriptions prescriptions = new Prescriptions();
+        PrescriptionsRepository prescriptionsRepository = new PrescriptionsRepository();
         List<Drug> drugs = new ArrayList<>();
         Drug drug = new Drug();
         drug.setName("Panadol");
@@ -65,7 +65,7 @@ class DoctorServicesTest {
 
     @Test
     void cancelPrescriptionRequestTest() {
-        Prescriptions prescriptions = new Prescriptions();
+        PrescriptionsRepository prescriptionsRepository = new PrescriptionsRepository();
         List<Drug> drugs = new ArrayList<>();
         Drug drug = new Drug();
         drug.setName("Panadol");
@@ -78,6 +78,6 @@ class DoctorServicesTest {
         addPrescriptionRequest.setDosage("200ml");
         addPrescriptionRequest.setQuantity(3);
         doctorServices.addPrescription(addPrescriptionRequest);
-        assertEquals(1, prescriptions.getCount());
+        assertEquals(1, prescriptionsRepository.getCount());
     }
 }

@@ -1,5 +1,8 @@
 package com.pharmacy.services;
 
+//import com.pharmacy.data.models.Drug;
+import com.pharmacy.data.models.Prescription;
+import com.pharmacy.data.repository.PrescriptionsRepository;
 import com.pharmacy.data.models.Drug;
 import com.pharmacy.data.models.Prescription;
 import com.pharmacy.data.repository.PrescriptionRepository;
@@ -9,15 +12,12 @@ import java.util.ArrayList;
 
 public class PharmacistServices {
 
-
-    public boolean verifyPrescription(String prescriptionCode){
+    public Prescription verifyPrescription(String prescriptionCode){
         Prescription prescription = PrescriptionRepository.findByCode(prescriptionCode);
         if(prescription == null){
             return false;
         }
-        Drug drug = prescription.getDrug();
-        System.out.println("Prescription verified for "+ drug.getName());
-        return true;
+        return prescription;
     }
 
 //    public Drug dispenseDrugs(Prescription prescription){
