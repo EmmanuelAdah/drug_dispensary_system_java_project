@@ -8,6 +8,23 @@ public class Main {
     public static void main(String[] args) {
 
         String choice = input(mainMenu());
+        switch (choice){
+            case "1":
+                print(adminMenu());
+                while (true){
+                    String username = input("Enter username");
+                    String password = input("Enter password");
+
+                    String response = input("Would you like to add another user? (y/n)");
+                    if (response.equalsIgnoreCase("no") || response.equalsIgnoreCase("n")) break;
+                }
+            case "2":
+                print(doctorMenu());
+                break;
+            case "3":
+                print(pharmacistMenu());
+                break;
+        }
 
 
     }
@@ -47,10 +64,6 @@ public class Main {
                 2 -> Dispense drugs
                 0 -> Back
                 """;
-   }
-
-   public static boolean login(String username, String password){
-
    }
 
     public static void print(String message) {
