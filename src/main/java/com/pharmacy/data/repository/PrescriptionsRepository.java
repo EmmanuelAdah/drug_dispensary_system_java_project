@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class Prescriptions {
+public class PrescriptionsRepository {
     static List<Prescription> prescriptions = new ArrayList<>();
 
     public int getCount() {
@@ -21,6 +21,22 @@ public class Prescriptions {
         for(Prescription prescription : prescriptions){
             System.out.println(prescription);
         }
+    }
+
+    private void update(Prescription prescription) {
+        prescriptions.remove(prescription);
+        prescriptions.add(prescription);
+    }
+
+    public Prescription findByCode(String code) {
+        for (Prescription prescription : prescriptions) {
+            if (Objects.equals(prescription.getPrescriptionCode(), code)) return prescription;
+        }
+        return null;
+    }
+
+    public void updatePrescription(Prescription prescription) {
+        for (Prescription prescribed : prescriptions) {}
     }
 
     public void cancelPrescription(Prescription prescription) {
