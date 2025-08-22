@@ -4,13 +4,14 @@ import java.util.List;
 
 public class Prescription {
     private long patientID;
+    private Doctor doctor;
     private String diagnosis;
     private List<Drug> drugs;
     private String dosage;
     private int quantity;
     private Status status;
     private String prescriptionCode;
-
+  
 
     public long getPatientID() {
         return this.patientID;
@@ -50,6 +51,14 @@ public class Prescription {
 
     public void setStatus(Status status) {
         this.status = status;
+    }
+
+    public Doctor getDoctor() {
+        return doctor;
+    }
+
+    public void setDoctor(Doctor doctor) {
+        this.doctor = doctor;
     }
 
     public String getPrescriptionCode() {

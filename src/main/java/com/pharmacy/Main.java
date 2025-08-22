@@ -3,7 +3,6 @@ package com.pharmacy;
 import com.pharmacy.dtos.request.AddPrescriptionRequest;
 
 import java.util.Scanner;
-
 import static java.lang.System.in;
 
 public class Main {
@@ -46,7 +45,7 @@ public class Main {
 
     public static String mainMenu() {
         return """
-                welcome
+                welcome to SM Pharmacy
                 press:-
                 1 -> Admin
                 2 -> Doctor
@@ -60,6 +59,7 @@ public class Main {
                 press:-
                 1 -> Make prescription
                 2 -> View prescriptions
+                3 -> Logout
                 0 -> Back
                 """;
     }
@@ -69,6 +69,7 @@ public class Main {
                 press:-
                 1 -> Check prescription
                 2 -> Dispense drugs
+                3 -> View dispensed prescriptions
                 0 -> Back
                 """;
    }
