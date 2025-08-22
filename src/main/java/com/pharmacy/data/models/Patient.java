@@ -1,7 +1,7 @@
 package com.pharmacy.data.models;
 
 public class Patient {
-    private long patientID;
+    private int patientID;
     private String firstName;
     private String lastName;
     private int age;
@@ -9,11 +9,11 @@ public class Patient {
     private String email;
     private String phone;
 
-    public long getPatientID() {
+    public int getPatientID() {
         return patientID;
     }
 
-    public void setPatientID(long patientID) {
+    public void setPatientID(int patientID) {
         this.patientID = patientID;
     }
 
