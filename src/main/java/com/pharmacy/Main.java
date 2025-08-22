@@ -9,6 +9,7 @@ public class Main {
 
         String choice = input(mainMenu());
 
+
     }
 
     public static String mainMenu() {
@@ -19,6 +20,14 @@ public class Main {
                 2 -> Doctor
                 3 -> Pharmacist
                 4 -> Exit
+                """;
+    }
+
+    public static String adminMenu(){
+        return """
+                press:-
+                1 -> Add user
+                0 -> Back
                 """;
     }
 
@@ -38,6 +47,10 @@ public class Main {
                 2 -> Dispense drugs
                 0 -> Back
                 """;
+   }
+
+   public static boolean login(String username, String password){
+
    }
 
     public static void print(String message) {
