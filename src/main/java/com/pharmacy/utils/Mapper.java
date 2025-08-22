@@ -16,11 +16,9 @@ public class Mapper {
     public static Prescription map(AddPrescriptionRequest addPrescriptionRequest) {
         Prescription prescription = new Prescription();
         prescription.setPatientID(addPrescriptionRequest.getPatientID());
-        prescription.setPrescriptionCode(prescription.getPrescriptionCode());
+        prescription.setPrescriptionCode(CodeGenerator.generatePrescriptionCode());
         prescription.setDiagnosis(addPrescriptionRequest.getDiagnosis());
         prescription.setDrugs(mapDrugs(addPrescriptionRequest.getDrugs()));
-        prescription.setDosage(addPrescriptionRequest.getDosage());
-        prescription.setQuantity(addPrescriptionRequest.getQuantity());
         return prescription;
     }
 
