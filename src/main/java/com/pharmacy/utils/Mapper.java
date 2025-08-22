@@ -9,7 +9,6 @@ import com.pharmacy.dtos.responses.AddPrescriptionResponse;
 import com.pharmacy.dtos.responses.CancelPrescriptionResponse;
 import java.util.ArrayList;
 import java.util.List;
-
 import static com.pharmacy.utils.Validator.validate;
 
 public class Mapper {
@@ -17,7 +16,7 @@ public class Mapper {
     public static Prescription map(AddPrescriptionRequest addPrescriptionRequest) {
         Prescription prescription = new Prescription();
         prescription.setPatientID(addPrescriptionRequest.getPatientID());
-        prescription.setPrescriptionID(prescription.getPrescriptionID());
+        prescription.setPrescriptionCode(prescription.getPrescriptionCode());
         prescription.setDiagnosis(addPrescriptionRequest.getDiagnosis());
         prescription.setDrugs(mapDrugs(addPrescriptionRequest.getDrugs()));
         prescription.setDosage(addPrescriptionRequest.getDosage());
@@ -50,7 +49,7 @@ public class Mapper {
     public static Prescription mapper(CancelPrescriptionRequest cancelPrescriptionRequest){
         Prescription prescription = new Prescription();
         prescription.setPatientID(cancelPrescriptionRequest.getPatientID());
-        prescription.setPrescriptionID(cancelPrescriptionRequest.getPrescriptionID());
+        prescription.setPrescriptionCode(cancelPrescriptionRequest.getPrescriptionCode());
         prescription.setStatus(Status.CANCELLED);
         return prescription;
     }
@@ -58,7 +57,7 @@ public class Mapper {
     public static CancelPrescriptionResponse mapper(Prescription prescription){
         CancelPrescriptionResponse response = new CancelPrescriptionResponse();
         response.setPatientId(prescription.getPatientID());
-        response.setPrescriptionId(prescription.getPrescriptionID());
+        response.setPrescriptionCode(prescription.getPrescriptionCode());
         response.setStatus(Status.CANCELLED);
         return response;
     }
