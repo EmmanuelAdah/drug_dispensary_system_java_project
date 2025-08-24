@@ -6,13 +6,14 @@ import com.pharmacy.dtos.request.AddPrescriptionRequest;
 import com.pharmacy.dtos.request.CancelPrescriptionRequest;
 import com.pharmacy.dtos.responses.AddPrescriptionResponse;
 import com.pharmacy.dtos.responses.CancelPrescriptionResponse;
+
 import static com.pharmacy.utils.Mapper.map;
 import static com.pharmacy.utils.Mapper.mapper;
 
 public class DoctorServices {
-    private final PrescriptionsRepository prescriptionsRepository = new PrescriptionsRepository();
+    private static final PrescriptionsRepository prescriptionsRepository = new PrescriptionsRepository();
 
-    public AddPrescriptionResponse addPrescription(AddPrescriptionRequest addPrescriptionRequest) {
+    public static AddPrescriptionResponse addPrescription(AddPrescriptionRequest addPrescriptionRequest) {
         Prescription prescription = map(addPrescriptionRequest);
         prescriptionsRepository.savePrescription(prescription);
         return map(prescription);
