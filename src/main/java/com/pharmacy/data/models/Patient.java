@@ -4,9 +4,7 @@ public class Patient {
     private int patientID;
     private String firstName;
     private String lastName;
-    private int age;
     private Gender gender;
-    private String email;
     private String phone;
 
     public int getPatientID() {
@@ -25,28 +23,12 @@ public class Patient {
         this.firstName = firstName;
     }
 
-    public int getAge() {
-        return this.age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-
     public String getLastName() {
         return this.lastName;
     }
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
-    }
-
-    public String getEmail() {
-        return this.email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 
     public String getPhone() {
