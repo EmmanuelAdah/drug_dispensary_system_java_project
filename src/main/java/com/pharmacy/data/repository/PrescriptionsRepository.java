@@ -35,10 +35,6 @@ public class PrescriptionsRepository {
         return null;
     }
 
-    public void updatePrescription(Prescription prescription) {
-        for (Prescription prescribed : prescriptions) {}
-    }
-
     public void cancelPrescription(Prescription prescription) {
         for (Prescription prescribed : getPrescriptions()) {
             if (prescribed.getPatientID() == prescription.getPatientID() &&
