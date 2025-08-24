@@ -21,6 +21,7 @@ public class PrescriptionsRepository {
         for(Prescription prescription : prescriptions){
             System.out.println(prescription);
         }
+    }
 
     private void update(Prescription prescription) {
         prescriptions.remove(prescription);
@@ -34,10 +35,6 @@ public class PrescriptionsRepository {
         return null;
     }
 
-    public void updatePrescription(Prescription prescription) {
-        for (Prescription prescribed : prescriptions) {}
-    }
-
     public void cancelPrescription(Prescription prescription) {
         for (Prescription prescribed : getPrescriptions()) {
             if (prescribed.getPatientID() == prescription.getPatientID() &&
@@ -49,5 +46,5 @@ public class PrescriptionsRepository {
 
     public List<Prescription> getPrescriptions() {
         return prescriptions;
-  
+    }
 }

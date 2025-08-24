@@ -41,12 +41,12 @@ class PrescriptionsRepositoryTest {
         Drug drug1 = new Drug();
         drug1.setId(12L);
         drug1.setName("Panadol");
+        drug1.setDosage("200ml");
+        drug1.setQuantity(3);
         drugs.add(drug1);
 
-        prescription.setPatientID(1L);
+        prescription.setPatientID(1);
         prescription.setDrugs(drugs);
-        prescription.setDosage("200ml");
-        prescription.setQuantity(3);
         prescriptionsRepository.savePrescription(prescription);
         assertEquals(1, prescriptionsRepository.getCount());
     }

@@ -35,13 +35,13 @@ class DoctorServicesTest {
         Drug drug = new Drug();
         drug.setName("Panadol");
         drug.setType(Type.PAINKILLER);
+        drug.setDosage("200ml");
+        drug.setQuantity(3);
         drugs.add(drug);
 
         AddPrescriptionRequest addPrescriptionRequest = new AddPrescriptionRequest();
-        addPrescriptionRequest.setPatientID(12L);
-        addPrescriptionRequest.setDrug(drugs);
-        addPrescriptionRequest.setDosage("200ml");
-        addPrescriptionRequest.setQuantity(3);
+        addPrescriptionRequest.setPatientID(12);
+        addPrescriptionRequest.setDrugs(drugs);
         doctorServices.addPrescription(addPrescriptionRequest);
         assertEquals(1, prescriptionsRepository.getCount());
     }
@@ -56,8 +56,8 @@ class DoctorServicesTest {
         drugs.add(drug);
 
         AddPrescriptionRequest addPrescriptionRequest = new AddPrescriptionRequest();
-        addPrescriptionRequest.setPatientID(12L);
-        addPrescriptionRequest.setDrug(drugs);
+        addPrescriptionRequest.setPatientID(12);
+        addPrescriptionRequest.setDrugs(drugs);
         addPrescriptionRequest.setDosage("200ml");
         addPrescriptionRequest.setQuantity(0);
         assertThrows(InvalidDrugQuantityException.class, () -> doctorServices.addPrescription(addPrescriptionRequest));
@@ -70,13 +70,14 @@ class DoctorServicesTest {
         Drug drug = new Drug();
         drug.setName("Panadol");
         drug.setType(Type.PAINKILLER);
+        drug.setDosage("200ml");
+        drug.setQuantity(3);
         drugs.add(drug);
 
         AddPrescriptionRequest addPrescriptionRequest = new AddPrescriptionRequest();
-        addPrescriptionRequest.setPatientID(12L);
-        addPrescriptionRequest.setDrug(drugs);
-        addPrescriptionRequest.setDosage("200ml");
-        addPrescriptionRequest.setQuantity(3);
+        addPrescriptionRequest.setPatientID(12);
+        addPrescriptionRequest.setDrugs(drugs);
+
         doctorServices.addPrescription(addPrescriptionRequest);
         assertEquals(1, prescriptionsRepository.getCount());
     }
