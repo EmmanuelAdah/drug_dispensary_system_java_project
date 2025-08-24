@@ -21,6 +21,7 @@ public class PrescriptionsRepository {
         for(Prescription prescription : prescriptions){
             System.out.println(prescription);
         }
+    }
 
     private void update(Prescription prescription) {
         prescriptions.remove(prescription);
@@ -49,5 +50,5 @@ public class PrescriptionsRepository {
 
     public List<Prescription> getPrescriptions() {
         return prescriptions;
-  
+    }
 }
