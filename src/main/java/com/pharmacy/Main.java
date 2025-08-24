@@ -1,9 +1,13 @@
 package com.pharmacy;
 
+import com.pharmacy.data.models.Drug;
 import com.pharmacy.dtos.request.AddPrescriptionRequest;
+import com.pharmacy.services.DoctorServices;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 import java.util.Scanner;
-
 import static java.lang.System.in;
 
 public class Main {
@@ -11,24 +15,31 @@ public class Main {
 
         String choice = input(mainMenu() + "Enter option: ");
         switch (choice){
-            case "1":
-                while (true){
-                    String username = input("Enter username");
-                    String password = input("Enter password");
-
-                    String response = input("Would you like to add another user? (y/n)");
-                    switch (response){
-                        case "yes", "y": continue;
-                        default: main();
-                    }
-                }
+            case "1": adminService();
             case "2":
                 print(doctorMenu());
                 String doctorsChoice = input("Enter option: ");
                 switch (doctorsChoice){
                     case "1": {
-
-
+                                AddPrescriptionRequest request = new AddPrescriptionRequest();
+                                try {
+                                    request.setPatientID(Integer.parseInt(input("Enter Patient ID: ")));
+                                    request.setDiagnosis(input("Enter Diagnosis: "));
+                                    List<Drug> drugs = new ArrayList<>();
+                                    while (true) {
+                                        Drug drug = new Drug();
+                                        drug.setName(input("Enter drug Name: "));
+                                        drug.setDosage(input("Enter Dosage: "));
+                                        drug.setQuantity(Integer.parseInt(input("Enter Quantity: ")));
+                                        drugs.add(drug);
+                                        String addDrugChoice = input("Would you like to drugs? \nPress 1-> Yes or 2-> No");
+                                        if (!Objects.equals(addDrugChoice, "yes")) break;
+                                    }
+                                    request.setDrugs(drugs);
+                                }catch (NumberFormatException e){
+                                    System.err.print(e.getMessage());
+                                }
+                        DoctorServices.addPrescription(request);
                     }
                     case "2":{
 
@@ -73,13 +84,25 @@ public class Main {
                 """;
    }
 
+   public static void adminService(){
+       while (true){
+           String username = input("Enter username");
+           String password = input("Enter password");
+
+           String response = input("Would you like to add another user? (y/n)");
+           switch (response){
+               case "yes", "y": continue;
+               default: main();
+           }
+       }
+   }
+
    public static AddPrescriptionRequest makePrescription(){
         AddPrescriptionRequest request = new AddPrescriptionRequest();
         while (true){
             request.setPatientID(Integer.parseInt(input("Enter patient ID: ")));
 
         }
-
    }
 
     public static void print(String message) {
