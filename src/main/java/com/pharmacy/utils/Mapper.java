@@ -9,16 +9,19 @@ import com.pharmacy.dtos.responses.AddPrescriptionResponse;
 import com.pharmacy.dtos.responses.CancelPrescriptionResponse;
 import java.util.ArrayList;
 import java.util.List;
-import static com.pharmacy.utils.Validator.validate;
+
+import static com.pharmacy.utils.Validator.*;
 
 public class Mapper {
 
     public static Prescription map(AddPrescriptionRequest addPrescriptionRequest) {
         Prescription prescription = new Prescription();
+        validatePatientID(addPrescriptionRequest.getPatientID());
         prescription.setPatientID(addPrescriptionRequest.getPatientID());
         prescription.setPrescriptionCode(CodeGenerator.generatePrescriptionCode());
         prescription.setDiagnosis(addPrescriptionRequest.getDiagnosis());
         prescription.setDrugs(mapDrugs(addPrescriptionRequest.getDrugs()));
+        prescription.setStatus(Status.PENDING);
         return prescription;
     }
 
@@ -26,21 +29,19 @@ public class Mapper {
         List<Drug> drugs = new ArrayList<>();
         for (Drug prescribed : prescription) {
             Drug drug = new Drug();
-            drug.setId(prescribed.getId());
             drug.setName(prescribed.getName());
-            validate(prescribed);
+            drug.setDosage(prescribed.getDosage());
+            validateQuantity(prescribed.getQuantity());
             drug.setQuantity(prescribed.getQuantity());
             drugs.add(drug);
-        }
+            }
         return drugs;
     }
 
     public static AddPrescriptionResponse map(Prescription prescription) {
         AddPrescriptionResponse addPrescriptionResponse = new AddPrescriptionResponse();
         addPrescriptionResponse.setPatientID(prescription.getPatientID());
-        addPrescriptionResponse.setDrug(prescription.getDrugs());
-        addPrescriptionResponse.setDosage(prescription.getDosage());
-        addPrescriptionResponse.setQuantity(prescription.getQuantity());
+        addPrescriptionResponse.setPrescriptionCode(prescription.getPrescriptionCode());
         return addPrescriptionResponse;
     }
 
