@@ -13,4 +13,8 @@ public class Validator {
     public static void validatePatientID(int patientID) {
         if (patientID <= 0) throw new InvalidPatientIdentityException("Invalid patient ID");
     }
+
+    public static void validateUsernameAndPassword(String username, String password) {
+
+    }
 }
