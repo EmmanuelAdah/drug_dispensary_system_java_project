@@ -1,27 +1,12 @@
 package com.pharmacy.data.models;
 
+import lombok.Data;
+
+@Data
 public class Pharmacist {
     private long pharmacistID;
+    private String firstName;
+    private String lastName;
     private String username;
-
-
-    public long getPharmacistID() {
-        return pharmacistID;
-    }
-
-    public void setPharmacistID(long pharmacistID) {
-        this.pharmacistID = pharmacistID;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public void setPassword(String password) {
-
-    }
+    private String password;
 }
