@@ -1,73 +1,37 @@
 package com.pharmacy.data.repository;
 
-import com.pharmacy.data.models.Drug;
+import com.pharmacy.data.models.Doctor;
+import com.pharmacy.data.models.Pharmacist;
+import com.pharmacy.exceptions.InvalidUsernameAndPasswordException;
 
-import java.util.List;
 import java.util.ArrayList;
+import java.util.List;
 
+public class PharmacyAdmin {
+    static List<Pharmacist> pharmacists = new ArrayList<>();
+    static List<Doctor> doctors = new ArrayList<>();
 
-public class Drugs {
-    private static List<Drug> drugs = new ArrayList<>();
-
-    public long count() {
-        return drugs.size();
+    public void registerPharmacist(Pharmacist pharmacist) {
+        pharmacists.add(pharmacist);
     }
 
-    public Drug save(Drug drug) {
-        if (isNew(drug)) {
-            saveNew(drug);
-        } else {
-            update(drug);
+    public void registerDoctor(Doctor doctor) {
+        doctors.add(doctor);
+    }
+
+    public boolean pharmacistLogin(String username, String password) {
+        for (Pharmacist pharmacist : pharmacists) {
+            if (pharmacist.getUsername().equals(username) && pharmacist.getPassword().equals(password))
+                return true;
         }
-        return drug;
+        throw new InvalidUsernameAndPasswordException("Invalid username and password");
     }
 
-    private void update(Drug drug) {
-        deleteByID(drug.getId());
-        drugs.add(drug);
-    }
-
-
-    private void deleteByID(long id) {
-        for (int i = 0; i < drugs.size(); i++) {
-            if (drugs.get(i).getId() == id) {
-                drugs.remove(i);
-                break;
-            }
+    public boolean doctorLogin(String username, String password) {
+        for (Doctor doctor : doctors) {
+            if (doctor.getUsername().equals(username) && doctor.getPassword().equals(password))
+                return true;
         }
+        throw new InvalidUsernameAndPasswordException("Invalid username and password");
     }
-
-    private void saveNew(Drug drug) {
-        drug.setId(generateId());
-        drugs.add(drug);
-    }
-
-    private int generateId() {
-        return drugs.size() + 1;
-    }
-
-    private boolean isNew(Drug drug) {
-        return drug.getId() == 0;
-    }
-
-    public Drug findId(long id) {
-        for (int i = 0; i < drugs.size(); i++) {
-            if (drugs.get(i).getId() == id) {
-                return drugs.get(i);
-            }
-        }
-        return null;
-    }
-
-    public Drug  findName(String name) {
-        for (int i = 0; i < drugs.size(); i++) {
-            if (drugs.get(i).getName().equals(name)) {
-                return drugs.get(i);
-            }
-        }
-        return null;
-    }
-
-
-
 }
