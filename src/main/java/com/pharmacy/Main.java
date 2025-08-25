@@ -21,6 +21,9 @@ public class Main {
                 String doctorsChoice = input("Enter option: ");
                 switch (doctorsChoice){
                     case "1": {
+                        String username = input("Enter username");
+                        String password = input("Enter password");
+
                                 AddPrescriptionRequest request = new AddPrescriptionRequest();
                                 try {
                                     request.setPatientID(Integer.parseInt(input("Enter Patient ID: ")));
