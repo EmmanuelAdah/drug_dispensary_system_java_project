@@ -4,20 +4,20 @@ import com.pharmacy.data.models.Prescription;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 
 public class PrescriptionRepository {
     private static final List<Prescription> prescriptions = new ArrayList<>();
 
-    public long count() {
-        return prescriptions.size();
+    private void addPrescription(Prescription prescription) {
+        prescriptions.add(prescription);
     }
 
-    public Prescription save(Prescription prescription) {
-        if (isNew(prescription)) saveNew(prescription);
-        else update(prescription);
-        return prescription;
+    public static Prescription findByCode(String prescriptionCode) {
+        for (Prescription prescription : prescriptions) {
+            if (prescription.getPrescriptionCode().equals(prescriptionCode)) return prescription;
+        }
+        return null;
     }
 
     private void update(Prescription prescription) {
@@ -25,27 +25,11 @@ public class PrescriptionRepository {
         prescriptions.add(prescription);
     }
 
-    private void saveNew(Prescription prescription) {
-        prescription.setCode(generatePrescriptionCode());
-        prescription.add(prescription);
-    }
-
-    public static String generatePrescriptionCode() {
-        Random random = new Random();
-        int number = 100 + random.nextInt(900); // gives 100 - 999
-        return "PR" + number;
-    }
-
-
     private boolean isNew(Prescription prescription) {
         return prescription.getPatientID() == 0;
     }
 
-    public static Prescription findByCode(String prescriptionCode) {
-        for (Prescription prescription : prescriptions) {
-            if (prescription.getCode().equals(prescriptionCode)) return prescription;
-        }
-        return null;
+    public long count() {
+        return prescriptions.size();
     }
-
 }
