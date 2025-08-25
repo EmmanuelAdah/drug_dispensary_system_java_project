@@ -1,69 +1,53 @@
 package com.pharmacy.data.models;
 
-public class Prescription {
-    private long patientID;
-    private Drug drug;
-    private Doctor doctor;
-    private int dosage;
-    private int quantity;
-    private String status;
-    private String code;
+import lombok.Data;
 
-    public long getPatientID() {
-        return patientID;
+import java.util.List;
+
+public class Prescription {
+    private int patientID;
+    private String diagnosis;
+    private List<Drug> drugs;
+    private Status status;
+    private String prescriptionCode;
+
+    public int getPatientID() {
+        return this.patientID;
     }
 
-    public void setPatientID(long patientID) {
+    public void setPatientID(int patientID) {
         this.patientID = patientID;
     }
 
-    public Drug getDrug() {
-        return drug;
+    public String getPrescriptionCode() {
+        return this.prescriptionCode;
     }
 
-    public void setDrug(Drug drug) {
-        this.drug = drug;
+    public void setPrescriptionCode(String prescriptionCode) {
+        this.prescriptionCode = prescriptionCode;
     }
 
-    public int getDosage() {
-        return dosage;
+    public Status getStatus() {
+        return this.status;
     }
 
-    public void setDosage(int dosage) {
-        this.dosage = dosage;
-    }
-
-    public int getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
+    public void setStatus(Status status) {
         this.status = status;
     }
-    public Doctor getDoctor() {
-        return doctor;
+
+    public List<Drug> getDrugs() {
+        return this.drugs;
     }
 
-    public void setDoctor(Doctor doctor) {
-        this.doctor = doctor;
+    public void setDrugs(List<Drug> drugs) {
+        this.drugs = drugs;
     }
 
-    public void add(Prescription prescription) {
-        prescription.setPatientID(patientID);
+    public String getDiagnosis() {
+        return this.diagnosis;
     }
 
-    public String getCode() {
-        return code;
-    }
-
-    public void setCode(String s) {
+    public void setDiagnosis(String diagnosis) {
+        this.diagnosis = diagnosis;
     }
 }
