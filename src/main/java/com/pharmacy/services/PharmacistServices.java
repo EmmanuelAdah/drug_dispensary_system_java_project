@@ -1,17 +1,13 @@
 package com.pharmacy.services;
 
-//import com.pharmacy.data.models.Drug;
 import com.pharmacy.data.models.Prescription;
-import com.pharmacy.data.repository.PrescriptionsRepository;
+import com.pharmacy.data.repository.PrescriptionRepository;
 
 public class PharmacistServices {
-    PrescriptionsRepository prescriptionsRepository = new PrescriptionsRepository();
 
-    public boolean verifyPrescription(String prescriptionCode){
-        Prescription prescription = prescriptionsRepository.findByCode(prescriptionCode);
-        return prescription != null;
-//        Drug drug = prescription.getDrug();
-//        System.out.println("Prescription verified for "+ drug.getName());
+    public Prescription verifyPrescription(String prescriptionCode){
+        Prescription prescription = PrescriptionRepository.findByCode(prescriptionCode);
+        return prescription;
     }
 
 //    public Drug dispenseDrugs(Prescription prescription){
