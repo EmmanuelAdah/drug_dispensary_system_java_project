@@ -1,9 +1,8 @@
 package com.pharmacy;
 
+import com.pharmacy.controller.DoctorServicesController;
 import com.pharmacy.data.models.Drug;
 import com.pharmacy.dtos.request.AddPrescriptionRequest;
-import com.pharmacy.services.DoctorServices;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -21,11 +20,12 @@ public class Main {
                 String doctorsChoice = input("Enter option: ");
                 switch (doctorsChoice){
                     case "1": {
+                        DoctorServicesController controller = new  DoctorServicesController();
+                        AddPrescriptionRequest request = new AddPrescriptionRequest();
+
                         String username = input("Enter username");
                         String password = input("Enter password");
-
-                                AddPrescriptionRequest request = new AddPrescriptionRequest();
-                                try {
+                        try {
                                     request.setPatientID(Integer.parseInt(input("Enter Patient ID: ")));
                                     request.setDiagnosis(input("Enter Diagnosis: "));
                                     List<Drug> drugs = new ArrayList<>();
@@ -42,7 +42,7 @@ public class Main {
                                 }catch (NumberFormatException e){
                                     System.err.print(e.getMessage());
                                 }
-                        DoctorServices.addPrescription(request);
+                                controller.recordNewPrescription(request);
                     }
                     case "2":{
 
