@@ -1,5 +1,15 @@
 package com.pharmacy.data.models;
 
 public enum Status {
-    PENDING, COMPLETED
+    PENDING, CANCELLED, DISPENSED;
+
+    private Status status;
+
+    public Status getStatus() {
+        return status;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
+    }
 }
