@@ -3,14 +3,17 @@ package com.pharmacy.utils;
 import com.pharmacy.data.models.Drug;
 import com.pharmacy.data.models.Prescription;
 import com.pharmacy.data.models.Status;
+import com.pharmacy.data.models.User;
 import com.pharmacy.dtos.request.AddPrescriptionRequest;
+import com.pharmacy.dtos.request.AddUserRequest;
 import com.pharmacy.dtos.request.CancelPrescriptionRequest;
 import com.pharmacy.dtos.responses.AddPrescriptionResponse;
+import com.pharmacy.dtos.responses.AddUserResponse;
 import com.pharmacy.dtos.responses.CancelPrescriptionResponse;
+import static com.pharmacy.utils.PasswordHasher.hashPassword;
+import static com.pharmacy.utils.Validator.*;
 import java.util.ArrayList;
 import java.util.List;
-
-import static com.pharmacy.utils.Validator.*;
 
 public class Mapper {
 
@@ -59,5 +62,24 @@ public class Mapper {
         response.setPrescriptionCode(prescription.getPrescriptionCode());
         response.setStatus(Status.CANCELLED);
         return response;
+    }
+
+    public static User mapUser(AddUserRequest addUserRequest) {
+        User user = new User();
+        user.setUserID(addUserRequest.getUserID());
+        user.setFirstname(addUserRequest.getFirstName());
+        user.setLastname(addUserRequest.getLastName());
+        user.setRole(validateRole(addUserRequest.getRole()));
+        user.setUsername(addUserRequest.getUsername());
+        user.setPassword(hashPassword(addUserRequest.getPassword()));
+        return user;
+    }
+
+    public static AddUserResponse map(User user) {
+        AddUserResponse addUserResponse = new AddUserResponse();
+        addUserResponse.setUserID(user.getUserID());
+        addUserResponse.setFirstName(user.getFirstname());
+        addUserResponse.setLastName(user.getLastname());
+        return addUserResponse;
     }
 }
