@@ -5,7 +5,6 @@ public enum Status {
 
     private Status status;
 
-
     public Status getStatus() {
         return status;
     }
