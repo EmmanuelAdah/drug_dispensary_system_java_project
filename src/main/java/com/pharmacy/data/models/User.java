@@ -1,20 +1,12 @@
 package com.pharmacy.data.models;
 
-public class Doctor {
-    private long doctorID;
+public class User {
+    private long userID;
     private String firstname;
     private String lastname;
-    private Specialty specialty;
+    private Role role;
     private String username;
     private String password;
-
-    public long getDoctorID() {
-        return doctorID;
-    }
-
-    public void setDoctorID(long doctorID) {
-        this.doctorID = doctorID;
-    }
 
     public String getFirstname() {
         return firstname;
@@ -32,14 +24,6 @@ public class Doctor {
         this.lastname = lastname;
     }
 
-    public Specialty getSpecialty() {
-        return specialty;
-    }
-
-    public void setSpecialty(Specialty specialty) {
-        this.specialty = specialty;
-    }
-
     public String getUsername() {
         return username;
     }
@@ -54,5 +38,21 @@ public class Doctor {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
+    }
+
+    public long getUserID() {
+        return userID;
+    }
+
+    public void setUserID(long userID) {
+        this.userID = userID;
     }
 }
