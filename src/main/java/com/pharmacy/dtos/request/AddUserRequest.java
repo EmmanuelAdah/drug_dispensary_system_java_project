@@ -1,7 +1,5 @@
 package com.pharmacy.dtos.request;
 
-
-import com.pharmacy.data.models.Role;
 import lombok.Data;
 
 @Data
