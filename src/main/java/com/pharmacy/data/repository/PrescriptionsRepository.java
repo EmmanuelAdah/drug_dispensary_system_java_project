@@ -17,10 +17,8 @@ public class PrescriptionsRepository {
         prescriptions.add(prescription);
     }
 
-    public void viewPrescriptions(){
-        for(Prescription prescription : prescriptions){
-            System.out.println(prescription);
-        }
+    public List<Prescription> viewPrescriptions(){
+        return prescriptions;
     }
 
     private void update(Prescription prescription) {

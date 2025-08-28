@@ -1,22 +1,12 @@
 package com.pharmacy.services;
 
-//import com.pharmacy.data.models.Drug;
-import com.pharmacy.data.models.Prescription;
-import com.pharmacy.data.repository.PrescriptionsRepository;
-import com.pharmacy.data.models.Drug;
 import com.pharmacy.data.models.Prescription;
 import com.pharmacy.data.repository.PrescriptionRepository;
-import com.pharmacy.dtos.request.BuyDrugsRequest;
-
-import java.util.ArrayList;
 
 public class PharmacistServices {
 
     public Prescription verifyPrescription(String prescriptionCode){
         Prescription prescription = PrescriptionRepository.findByCode(prescriptionCode);
-        if(prescription == null){
-            return false;
-        }
         return prescription;
     }
 
