@@ -3,10 +3,8 @@ package com.pharmacy.controller;
 
 import com.pharmacy.data.models.Prescription;
 import com.pharmacy.dtos.request.AddPrescriptionRequest;
-import com.pharmacy.dtos.request.AddUserRequest;
 import com.pharmacy.dtos.request.CancelPrescriptionRequest;
 import com.pharmacy.dtos.responses.AddPrescriptionResponse;
-import com.pharmacy.dtos.responses.AddUserResponse;
 import com.pharmacy.dtos.responses.CancelPrescriptionResponse;
 import com.pharmacy.services.DoctorServices;
 
