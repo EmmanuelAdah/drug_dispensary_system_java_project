@@ -74,8 +74,7 @@ public class Main {
                 press:-
                 1 -> Make prescription
                 2 -> View prescriptions
-                3 -> Logout
-                0 -> Back
+                0 -> Logout
                 """;
     }
 
