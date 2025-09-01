@@ -7,28 +7,15 @@ import java.util.List;
 import java.util.Objects;
 
 public class PrescriptionsRepository {
-    static List<Prescription> prescriptions = new ArrayList<>();
+    private static final List<Prescription> prescriptions = new ArrayList<>();
 
-    public int getCount() {
-        return prescriptions.size();
-    }
-
-    public void savePrescription(Prescription prescription) {
+    public void addPrescription(Prescription prescription) {
         prescriptions.add(prescription);
     }
 
-    public List<Prescription> viewPrescriptions(){
-        return prescriptions;
-    }
-
-    private void update(Prescription prescription) {
-        prescriptions.remove(prescription);
-        prescriptions.add(prescription);
-    }
-
-    public Prescription findByCode(String code) {
+    public static Prescription findByCode(String prescriptionCode) {
         for (Prescription prescription : prescriptions) {
-            if (Objects.equals(prescription.getPrescriptionCode(), code)) return prescription;
+            if (prescription.getPrescriptionCode().equals(prescriptionCode)) return prescription;
         }
         return null;
     }
@@ -42,7 +29,16 @@ public class PrescriptionsRepository {
         }
     }
 
+    private void update(Prescription prescription) {
+        prescriptions.remove(prescription);
+        prescriptions.add(prescription);
+    }
+
     public List<Prescription> getPrescriptions() {
         return prescriptions;
+    }
+
+    public long getCount() {
+        return prescriptions.size();
     }
 }
