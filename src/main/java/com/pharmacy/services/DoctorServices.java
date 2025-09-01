@@ -11,16 +11,16 @@ import static com.pharmacy.utils.Mapper.map;
 import static com.pharmacy.utils.Mapper.mapper;
 
 public class DoctorServices {
-    private static final PrescriptionsRepository prescriptionsRepository = new PrescriptionsRepository();
+    PrescriptionsRepository prescriptionsRepository = new PrescriptionsRepository();
 
     public AddPrescriptionResponse addPrescription(AddPrescriptionRequest addPrescriptionRequest) {
         Prescription prescription = map(addPrescriptionRequest);
-        prescriptionsRepository.savePrescription(prescription);
+        prescriptionsRepository.addPrescription(prescription);
         return map(prescription);
     }
 
     public List<Prescription> viewPrescriptions(){
-        return prescriptionsRepository.viewPrescriptions();
+        return prescriptionsRepository.getPrescriptions();
     }
 
     public CancelPrescriptionResponse cancelPrescription(CancelPrescriptionRequest cancelPrescriptionRequest){
