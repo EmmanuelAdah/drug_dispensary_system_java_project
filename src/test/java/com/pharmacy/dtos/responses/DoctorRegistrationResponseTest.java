@@ -1,5 +1,4 @@
 package com.pharmacy.dtos.responses;
-import com.pharmacy.data.models.Specialty;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -13,12 +12,10 @@ import static org.junit.jupiter.api.Assertions.*;
             response.setDoctorID(1001L);
             response.setFirstname("Salako");
             response.setLastname("Hassan");
-            response.setSpecialty(Specialty.CLINICAL_NUTRITIONIST);
             response.setMessage("Registration successful");
             assertEquals(1001L, response.getDoctorID());
             assertEquals("Salako", response.getFirstname());
             assertEquals("Hassan", response.getLastname());
-            assertEquals(Specialty.CLINICAL_NUTRITIONIST, response.getSpecialty());
             assertEquals("Registration successful", response.getMessage());
         }
 
@@ -44,19 +41,9 @@ import static org.junit.jupiter.api.Assertions.*;
         }
 
         @Test
-        public void testSetSpecialtyOfDoctors() {
-            DoctorRegistartionResponse response = new DoctorRegistartionResponse();
-            response.setSpecialty(Specialty.CLINICAL_NUTRITIONIST);
-            assertEquals(Specialty.CLINICAL_NUTRITIONIST, response.getSpecialty());
-        }
-
-        @Test
         public void testSetMessageOfDoctor() {
             DoctorRegistartionResponse response = new DoctorRegistartionResponse();
             response.setMessage("Congratulations,You've been registered successfully");
             assertEquals("Congratulations,You've been registered successfully", response.getMessage());
         }
     }
-
-
-

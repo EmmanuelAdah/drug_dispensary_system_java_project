@@ -1,40 +1,17 @@
 package com.pharmacy.dtos.request;
 
-import com.pharmacy.data.models.Specialty;
-
 public class DoctorRegistrationRequest {
-
         private String firstname;
         private String lastname;
-        private Specialty specialty;
+        private String username;
         private String password;
-        private String email;
-        private String phoneNumber;
 
 
-        public String getPhoneNumber() {
-            return phoneNumber;
-        }
-        public void setPhoneNumber(String phoneNumber) {
-            this.phoneNumber = phoneNumber;
-        }
-        public String getEmail() {
-            return email;
-        }
-        public void setEmail(String email) {
-            this.email = email;
-        }
         public String getPassword() {
             return password;
         }
         public void setPassword(String password) {
             this.password = password;
-        }
-        public Specialty getSpecialty() {
-            return specialty;
-        }
-        public void setSpecialty(Specialty specialty) {
-            this.specialty = specialty;
         }
         public String getLastname() {
             return lastname;
