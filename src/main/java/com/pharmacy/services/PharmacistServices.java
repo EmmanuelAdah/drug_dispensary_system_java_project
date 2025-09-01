@@ -1,12 +1,12 @@
 package com.pharmacy.services;
 
 import com.pharmacy.data.models.Prescription;
-import com.pharmacy.data.repository.PrescriptionRepository;
+import com.pharmacy.data.repository.PrescriptionsRepository;
 
 public class PharmacistServices {
 
     public Prescription verifyPrescription(String prescriptionCode){
-        Prescription prescription = PrescriptionRepository.findByCode(prescriptionCode);
+        Prescription prescription = PrescriptionsRepository.findByCode(prescriptionCode);
         return prescription;
     }
 
