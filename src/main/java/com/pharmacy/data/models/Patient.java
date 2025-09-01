@@ -2,18 +2,13 @@ package com.pharmacy.data.models;
 
 public class Patient {
     private int patientID;
-    private String firstName;
-    private String lastName;
-    private int age;
+    private String firstname;
+    private String lastname;
     private Gender gender;
-    private String email;
     private String phone;
     private String username;
     private String password;
 
-    public String getPassword() {
-        return password;
-    }
 
     public void setPassword(String password) {
         this.password = password;
@@ -25,6 +20,10 @@ public class Patient {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+  
+    public String getUsername() {
+        return this.username;
     }
 
     public Gender getGender() {
@@ -42,44 +41,28 @@ public class Patient {
     public void setPatientID(int patientID) {
         this.patientID = patientID;
     }
+  
+   public int getPatientID() {
+        return this.patientID;
+    }
 
     public String getFirstName() {
         return this.firstName;
     }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+  
+      public void setFirstName(String firstName) {
+        this.firstname = firstName;
     }
 
-    public int getAge() {
-        return this.age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-
-    public String getLastName() {
-        return this.lastName;
+    public void setGender(Gender gender) {
+        this.gender = gender;
     }
 
     public void setLastName(String lastName) {
-        this.lastName = lastName;
+        this.lastname = lastName;
     }
-
-    public String getEmail() {
-        return this.email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getPhone() {
-        return this.phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
+  
+    public String getLastName() {
+        return this.lastname;
     }
 }
